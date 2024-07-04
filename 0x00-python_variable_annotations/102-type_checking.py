@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
+"""
+Module that illustrates how to use
+Mypy
+"""
+from typing import List, Tuple
 
-from typing import List
 
-def zoom_array(lst: List[int], factor: int = 2) -> List[int]:
-    """Zooms in the array by repeating each element 'factor' times."""
-    zoomed_in: List[int] = [
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """
+    Takes in a Tuple and returns the Tuple multiplied
+    a factor
+    """
+    zoomed_in: List = [
         item for item in lst
-        for _ in range(factor)
+        for i in range(factor)
     ]
     return zoomed_in
 
+
 array = [12, 72, 91]
 
-zoom_2x = zoom_array(array)
-zoom_3x = zoom_array(array, 3)
+zoom_2x = zoom_array(tuple(array))
 
-if __name__ == "__main__":
-    print(zoom_array.__annotations__)
-    print(zoom_2x)
-    print(zoom_3x)
+zoom_3x = zoom_array(tuple(array), 3)
